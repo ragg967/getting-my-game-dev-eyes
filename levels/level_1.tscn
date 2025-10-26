@@ -68,6 +68,7 @@ tile_map_data = PackedByteArray("AAATAAkAAAACAAAAAAASAAkAAAACAAAAAAARAAkAAAACAAA
 tile_set = ExtResource("3_bt44k")
 
 [node name="Front" type="TileMapLayer" parent="Map"]
+modulate = Color(0.643, 0.643, 0.643, 0.663)
 z_index = 100
 tile_map_data = PackedByteArray("AAD8/wcAAAABAAAAAAD8/wgAAAABAAAAAAD8/wUAAAABAAAAAAD8/wYAAAABAAAAAAA=")
 tile_set = ExtResource("4_kx6l7")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://be0wdqt283y4f"]
+[gd_scene load_steps=8 format=3 uid="uid://be0wdqt283y4f"]
 
+[ext_resource type="Script" uid="uid://ccjymo1xpfufv" path="res://scripts/death_screen.gd" id="1_mqh5l"]
 [ext_resource type="Texture2D" uid="uid://dbco5vl2kws8f" path="res://assets/you-died.png" id="1_uyutr"]
 [ext_resource type="Texture2D" uid="uid://c6fvnpydvk6h5" path="res://assets/bg-tiles.png" id="2_dwo6e"]
 
@@ -20,19 +21,22 @@ atlas = ExtResource("2_dwo6e")
 region = Rect2(0, 0, 16, 16)
 
 [node name="DeathScreen" type="Control"]
+process_mode = 3
 visible = false
-z_index = 600
+z_index = 200
 layout_mode = 3
 anchors_preset = 0
 offset_left = -320.0
 offset_top = -160.0
 offset_right = 320.0
 offset_bottom = 160.0
+script = ExtResource("1_mqh5l")
 
 [node name="Respawn" type="Button" parent="."]
 layout_mode = 0
+offset_left = 64.0
 offset_top = 215.0
-offset_right = 320.0
+offset_right = 192.0
 offset_bottom = 270.0
 icon = SubResource("AtlasTexture_dwo6e")
 flat = true
@@ -41,9 +45,9 @@ expand_icon = true
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 320.0
+offset_left = 448.0
 offset_top = 215.0
-offset_right = 640.0
+offset_right = 576.0
 offset_bottom = 270.0
 icon = SubResource("AtlasTexture_uyutr")
 flat = true
@@ -60,8 +64,11 @@ stretch_mode = 5
 
 [node name="BackGround" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.5882353)
-z_index = -5
+show_behind_parent = true
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 320.0
 texture = SubResource("AtlasTexture_7ns25")
+
+[connection signal="pressed" from="Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
