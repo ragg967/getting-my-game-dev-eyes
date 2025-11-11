@@ -1,6 +1,7 @@
 extends Node2D
 const UP: String = "Up"
 @onready var grabMe: Sprite2D = $Map/LockAndKey/GrabMe
+@onready var upToInteract: Sprite2D = $Map/LockAndKey/UpToInteract
 @onready var key: AnimatedSprite2D = $Map/LockAndKey/Key
 @onready var doorColi: CollisionShape2D = $Map/Front/DoorColi/CollisionShape2D
 @onready var lockAndKey: Node2D = $Map/LockAndKey
@@ -15,6 +16,7 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed(UP):
 			grabbed = true
 			grabMe.visible = false
+			upToInteract.visible = false
 	
 	if grabbed:
 		key.global_position.y = player.global_position.y - 10 
@@ -30,17 +32,21 @@ func _process(_delta: float) -> void:
 func _on_pickup_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		grabMe.visible = true
+		upToInteract.visible = true
 		grabable = true
 
 func _on_pickup_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		grabMe.visible = false
+		upToInteract.visible = false
 		grabable = false
 
 func _on_dropoff_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		inDropoffArea = true
+		upToInteract.visible = true
 
 func _on_dropoff_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		inDropoffArea = false
+		upToInteract.visible = false

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnl35v7mbb64o"]
+
+[ext_resource type="PackedScene" uid="uid://cl6wu48qvr8bn" path="res://levels/levels_template.tscn" id="1_vflpa"]
+[ext_resource type="Texture2D" uid="uid://c6fvnpydvk6h5" path="res://assets/bg-tiles.png" id="2_pltw0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qskt5"]
+texture = ExtResource("2_pltw0")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8tsbn"]
+resource_local_to_scene = true
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qskt5")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqsg2"]
+texture = ExtResource("2_pltw0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fpvgn"]
+resource_local_to_scene = true
+sources/0 = SubResource("TileSetAtlasSource_rqsg2")
+
+[node name="Level6" instance=ExtResource("1_vflpa")]
+
+[node name="Back" parent="Map" index="1"]
+tile_set = SubResource("TileSet_8tsbn")
+
+[node name="Front" parent="Map" index="2"]
+tile_set = SubResource("TileSet_fpvgn")
+
+[node name="Background" parent="Map" index="3"]
+tile_set = SubResource("TileSet_fpvgn")
+
+[node name="Lava" parent="Map" index="5"]
+tile_set = SubResource("TileSet_8tsbn")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://d4ab73cb1ohsy"]
+[gd_scene load_steps=19 format=4 uid="uid://d4ab73cb1ohsy"]
 
 [ext_resource type="PackedScene" uid="uid://cl6wu48qvr8bn" path="res://levels/levels_template.tscn" id="1_yaabq"]
 [ext_resource type="Texture2D" uid="uid://c6fvnpydvk6h5" path="res://assets/bg-tiles.png" id="2_dhnqt"]
 [ext_resource type="Texture2D" uid="uid://djsplqnm2jh1c" path="res://assets/key.png" id="3_dhnqt"]
-[ext_resource type="Script" uid="uid://c0bhik3x6fxxc" path="res://scripts/level_5.gd" id="4_26h77"]
+[ext_resource type="Script" uid="uid://c0bhik3x6fxxc" path="res://levels/scrpits/level_5.gd" id="4_26h77"]
 [ext_resource type="TileSet" uid="uid://dappxv453vbtp" path="res://resources/tile-set-no-coli.tres" id="4_r02ll"]
+[ext_resource type="Texture2D" uid="uid://c0x2d0ul0dvuq" path="res://assets/up-to-interact.png" id="6_1y5xd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r02ll"]
 texture = ExtResource("2_dhnqt")
@@ -126,7 +127,7 @@ shape = SubResource("RectangleShape2D_1y5xd")
 [node name="GrabMe" type="Sprite2D" parent="Map/LockAndKey" index="1"]
 visible = false
 position = Vector2(-149.18314, 70.441086)
-scale = Vector2(2.529398, 2.529399)
+scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_dhnqt")
 
 [node name="Lock" type="Sprite2D" parent="Map/LockAndKey" index="2"]
@@ -140,6 +141,11 @@ texture = SubResource("AtlasTexture_1y5xd")
 position = Vector2(-14, -16.042294)
 scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_g5mgy")
+
+[node name="UpToInteract" type="Sprite2D" parent="Map/LockAndKey" index="3"]
+visible = false
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_1y5xd")
 
 [node name="Player" parent="." index="2"]
 position = Vector2(-311, 128)

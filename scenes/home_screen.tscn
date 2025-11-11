@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgagxallocd06"]
+
+[ext_resource type="Script" uid="uid://dowsq7lrlst87" path="res://scripts/home_screen.gd" id="1_lapbl"]
+
+[sub_resource type="SystemFont" id="SystemFont_lapbl"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lapbl")
+
+[node name="LabelContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LabelContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_lapbl")
+theme_override_font_sizes/font_size = 64
+text = "Home Screen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="ButtonContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="ButtonContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="ButtonContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
